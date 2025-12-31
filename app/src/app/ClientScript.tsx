@@ -109,30 +109,6 @@ export default function ClientScript() {
     window.addEventListener('scroll', setActiveNavLink);
 
     // ===================================
-    // CONTACT FORM HANDLING
-    // ===================================
-    const contactForm = document.querySelector('.contact-form');
-
-    if (contactForm) {
-      contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const name = (document.getElementById('name') as HTMLInputElement)?.value;
-        const email = (document.getElementById('email') as HTMLInputElement)?.value;
-        const message = (document.getElementById('message') as HTMLTextAreaElement)?.value;
-
-        // Simple validation
-        if (name && email && message) {
-          // Here you would typically send the data to a server
-          alert('Thank you for your message! We\'ll get back to you soon.');
-          (contactForm as HTMLFormElement).reset();
-        } else {
-          alert('Please fill in all fields.');
-        }
-      });
-    }
-
-    // ===================================
     // ANIMATE ON SCROLL - STAGGER EFFECT
     // ===================================
     const animateElements = document.querySelectorAll('.about-card, .feature-card, .course-card');

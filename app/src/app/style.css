@@ -154,6 +154,13 @@ body {
     filter: brightness(1);
 }
 
+.favicon-image {
+    height: 40px;
+    width: auto;
+    margin-right: 0.5rem;
+    opacity: 0.7;
+}
+
 .logo-image:hover {
     transform: scale(1.02);
     filter: brightness(1.1);
@@ -785,6 +792,7 @@ section {
     font-size: 1rem;
     transition: all var(--transition-base);
     background: var(--bg-card);
+    color: var(--text-primary);
 }
 
 .form-group input:focus,
@@ -796,6 +804,12 @@ section {
 
 .form-group textarea {
     resize: vertical;
+}
+
+.submit-message {
+    margin-top: 1rem;
+    color: var(--text-primary);
+    font-weight: 500;
 }
 
 /* ===================================
