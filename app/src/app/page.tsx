@@ -1,4 +1,13 @@
 import ClientScript from './ClientScript';
+import {
+  HERO_STATS,
+  ABOUT_CARDS,
+  FEATURES,
+  COURSES,
+  CONTACT_ITEMS,
+  FOOTER_SECTIONS,
+  SOCIAL_LINKS,
+} from './constants';
 
 export default function Home() {
   return (
@@ -48,18 +57,12 @@ export default function Home() {
               <button className="btn-secondary btn-large">Explore Courses</button>
             </div>
             <div className="hero-stats">
-              <div className="stat-item">
-                <div className="stat-number">10K+</div>
-                <div className="stat-label">Active Learners</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">50+</div>
-                <div className="stat-label">Expert Courses</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">95%</div>
-                <div className="stat-label">Success Rate</div>
-              </div>
+              {HERO_STATS.map((stat, index) => (
+                <div key={index} className="stat-item">
+                  <div className="stat-number">{stat.number}</div>
+                  <div className="stat-label">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -77,29 +80,13 @@ export default function Home() {
             </p>
           </div>
           <div className="about-content">
-            <div className="about-card reveal">
-              <div className="card-icon">🎯</div>
-              <h3>Goal-Oriented Learning</h3>
-              <p>Clear objectives and structured paths help you achieve your learning goals faster and more
-                efficiently.</p>
-            </div>
-            <div className="about-card reveal">
-              <div className="card-icon">💡</div>
-              <h3>Ask Unlimited Questions</h3>
-              <p>Our community thrives on curiosity. Get answers from experts and peers whenever you need them.
-              </p>
-            </div>
-            <div className="about-card reveal">
-              <div className="card-icon">🤝</div>
-              <h3>Inclusive Community</h3>
-              <p>Everyone is welcome here. We foster a supportive environment where all learners can thrive.</p>
-            </div>
-            <div className="about-card reveal">
-              <div className="card-icon">🔥</div>
-              <h3>Challenge Yourself</h3>
-              <p>Don't shy away from difficult topics. Embrace challenges and emerge stronger on the other side.
-              </p>
-            </div>
+            {ABOUT_CARDS.map((card, index) => (
+              <div key={index} className="about-card reveal">
+                <div className="card-icon">{card.icon}</div>
+                <h3>{card.title}</h3>
+                <p>{card.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -112,60 +99,17 @@ export default function Home() {
             <h2 className="section-title">Premium Learning Features</h2>
           </div>
           <div className="features-grid">
-            <div className="feature-card reveal">
-              <div className="feature-visual">
-                <div className="feature-icon">📚</div>
+            {FEATURES.map((feature, index) => (
+              <div key={index} className="feature-card reveal">
+                <div className="feature-visual">
+                  <div className="feature-icon">{feature.icon}</div>
+                </div>
+                <div className="feature-content">
+                  <h3>{feature.title}</h3>
+                  <p>{feature.description}</p>
+                </div>
               </div>
-              <div className="feature-content">
-                <h3>Comprehensive Curriculum</h3>
-                <p>Access a wide range of courses covering everything from basics to advanced topics.</p>
-              </div>
-            </div>
-            <div className="feature-card reveal">
-              <div className="feature-visual">
-                <div className="feature-icon">🎓</div>
-              </div>
-              <div className="feature-content">
-                <h3>Expert Instructors</h3>
-                <p>Learn from industry professionals with years of real-world experience.</p>
-              </div>
-            </div>
-            <div className="feature-card reveal">
-              <div className="feature-visual">
-                <div className="feature-icon">⚡</div>
-              </div>
-              <div className="feature-content">
-                <h3>Hands-On Projects</h3>
-                <p>Build real projects to solidify your understanding and showcase your skills.</p>
-              </div>
-            </div>
-            <div className="feature-card reveal">
-              <div className="feature-visual">
-                <div className="feature-icon">🏆</div>
-              </div>
-              <div className="feature-content">
-                <h3>Certifications</h3>
-                <p>Earn recognized certificates to boost your career and validate your expertise.</p>
-              </div>
-            </div>
-            <div className="feature-card reveal">
-              <div className="feature-visual">
-                <div className="feature-icon">🌐</div>
-              </div>
-              <div className="feature-content">
-                <h3>Global Community</h3>
-                <p>Connect with learners worldwide and expand your professional network.</p>
-              </div>
-            </div>
-            <div className="feature-card reveal">
-              <div className="feature-visual">
-                <div className="feature-icon">🔄</div>
-              </div>
-              <div className="feature-content">
-                <h3>Lifetime Access</h3>
-                <p>Once enrolled, enjoy unlimited access to course materials forever.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -178,48 +122,22 @@ export default function Home() {
             <h2 className="section-title">Start Your Journey Today</h2>
           </div>
           <div className="courses-grid">
-            <div className="course-card reveal">
-              <div className="course-image" style={{ background: 'linear-gradient(135deg, #003D82 0%, #0052B4 100%)' }}>
-                <span className="course-badge">Bestseller</span>
-              </div>
-              <div className="course-content">
-                <h3>Full-Stack Web Development</h3>
-                <p>Master HTML, CSS, JavaScript, React, Node.js, and more in this comprehensive bootcamp.</p>
-                <div className="course-meta">
-                  <span className="course-duration">⏱️ 12 weeks</span>
-                  <span className="course-level">📊 Beginner</span>
+            {COURSES.map((course, index) => (
+              <div key={index} className="course-card reveal">
+                <div className="course-image" style={{ background: course.image }}>
+                  <span className="course-badge">{course.badge}</span>
                 </div>
-                <button className="btn-course">Enroll Now</button>
-              </div>
-            </div>
-            <div className="course-card reveal">
-              <div className="course-image" style={{ background: 'linear-gradient(135deg, #FF6B00 0%, #FFA726 100%)' }}>
-                <span className="course-badge">New</span>
-              </div>
-              <div className="course-content">
-                <h3>Data Science & AI</h3>
-                <p>Dive into machine learning, deep learning, and AI with Python and TensorFlow.</p>
-                <div className="course-meta">
-                  <span className="course-duration">⏱️ 16 weeks</span>
-                  <span className="course-level">📊 Advanced</span>
+                <div className="course-content">
+                  <h3>{course.title}</h3>
+                  <p>{course.description}</p>
+                  <div className="course-meta">
+                    <span className="course-duration">{course.duration}</span>
+                    <span className="course-level">{course.level}</span>
+                  </div>
+                  <button className="btn-course">Enroll Now</button>
                 </div>
-                <button className="btn-course">Enroll Now</button>
               </div>
-            </div>
-            <div className="course-card reveal">
-              <div className="course-image" style={{ background: 'linear-gradient(135deg, #003D82 0%, #FF6B00 100%)' }}>
-                <span className="course-badge">Trending</span>
-              </div>
-              <div className="course-content">
-                <h3>Mobile App Development</h3>
-                <p>Build stunning iOS and Android apps using React Native and Flutter.</p>
-                <div className="course-meta">
-                  <span className="course-duration">⏱️ 10 weeks</span>
-                  <span className="course-level">📊 Intermediate</span>
-                </div>
-                <button className="btn-course">Enroll Now</button>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -247,27 +165,15 @@ export default function Home() {
               <h3>Have Questions?</h3>
               <p>We're here to help! Reach out to us and we'll get back to you as soon as possible.</p>
               <div className="contact-details">
-                <div className="contact-item">
-                  <div className="contact-icon">📧</div>
-                  <div>
-                    <div className="contact-label">Email</div>
-                    <div className="contact-value">hello@knowmoreirl.com</div>
+                {CONTACT_ITEMS.map((item, index) => (
+                  <div key={index} className="contact-item">
+                    <div className="contact-icon">{item.icon}</div>
+                    <div>
+                      <div className="contact-label">{item.label}</div>
+                      <div className="contact-value">{item.value}</div>
+                    </div>
                   </div>
-                </div>
-                <div className="contact-item">
-                  <div className="contact-icon">📱</div>
-                  <div>
-                    <div className="contact-label">Phone</div>
-                    <div className="contact-value">+1 (555) 123-4567</div>
-                  </div>
-                </div>
-                <div className="contact-item">
-                  <div className="contact-icon">📍</div>
-                  <div>
-                    <div className="contact-label">Location</div>
-                    <div className="contact-value">San Francisco, CA</div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
             <form className="contact-form reveal">
@@ -294,36 +200,33 @@ export default function Home() {
               <h3 className="footer-logo">Know<span className="highlight">More</span>IRL</h3>
               <p>Learning That Works IRL - Empowering learners worldwide to turn mistakes into mastery.</p>
               <div className="social-links">
-                <a href="#" className="social-link">𝕏</a>
-                <a href="#" className="social-link">in</a>
-                <a href="#" className="social-link">f</a>
-                <a href="#" className="social-link">ig</a>
+                {SOCIAL_LINKS.map((link, index) => (
+                  <a key={index} href="#" className="social-link">{link}</a>
+                ))}
               </div>
             </div>
             <div className="footer-section">
               <h4>Quick Links</h4>
               <ul>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#contact">Contact</a></li>
+                {FOOTER_SECTIONS.quickLinks.map((link, index) => (
+                  <li key={index}><a href="#">{link}</a></li>
+                ))}
               </ul>
             </div>
             <div className="footer-section">
               <h4>Resources</h4>
               <ul>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Documentation</a></li>
-                <li><a href="#">Community</a></li>
-                <li><a href="#">Support</a></li>
+                {FOOTER_SECTIONS.resources.map((link, index) => (
+                  <li key={index}><a href="#">{link}</a></li>
+                ))}
               </ul>
             </div>
             <div className="footer-section">
               <h4>Legal</h4>
               <ul>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-                <li><a href="#">Cookie Policy</a></li>
+                {FOOTER_SECTIONS.legal.map((link, index) => (
+                  <li key={index}><a href="#">{link}</a></li>
+                ))}
               </ul>
             </div>
           </div>
