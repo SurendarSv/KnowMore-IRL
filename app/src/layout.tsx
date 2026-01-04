@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./style.css";
+import { AuthProvider } from "../context/AuthContext"; // Added AuthProvider import
 
 export const metadata: Metadata = {
   title: "KnowMoreIRL - Learn, Grow, Innovate",
@@ -32,7 +33,9 @@ export default function RootLayout({
         <link rel="shortcut icon" href="favicon.png" />
       </head>
       <body>
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
