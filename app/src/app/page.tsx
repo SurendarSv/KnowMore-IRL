@@ -2,24 +2,27 @@
 
 import { useState, useEffect } from 'react';
 
+// Learning paths - coding is hidden for now (set hidden: true to hide, false to show)
 const learningPaths = [
   {
     id: 'ai',
     title: 'AI & Machine Learning',
-    description: 'Master AI/ML concepts with real-world implementations and latest frameworks',
+    description: 'From neural networks to production-ready models. Build intelligent systems that transform industries.',
     topics: 120,
     problems: '300+',
-    status: 'Free',
-    icon: '🧠'
+    status: '',
+    icon: '🧠',
+    hidden: false
   },
   {
     id: 'devops',
     title: 'DevOps & Cloud',
-    description: 'Learn DevOps practices, CI/CD, Docker, Kubernetes, and cloud technologies',
+    description: 'Master the art of automation. Deploy, scale, and manage infrastructure like top tech companies.',
     topics: 95,
     problems: '200+',
-    status: 'Free',
-    icon: '⚙️'
+    status: '',
+    icon: '⚙️',
+    hidden: false
   },
   {
     id: 'coding',
@@ -27,38 +30,47 @@ const learningPaths = [
     description: 'Data Structures, Algorithms, and coding patterns for interviews',
     topics: 180,
     problems: '500+',
-    status: 'Free',
-    icon: '💻'
+    status: '',
+    icon: '💻',
+    hidden: true // Hidden for now - set to false to show again
   }
 ];
 
+// Filter to only show visible paths
+const visiblePaths = learningPaths.filter(p => !p.hidden);
+
+// Features - coding hidden for now
 const features = [
-  { icon: '🧠', title: 'AI/ML Focus', desc: 'Latest AI tools, frameworks & real implementations' },
-  { icon: '⚙️', title: 'DevOps Mastery', desc: 'CI/CD, containerization & cloud infrastructure' },
-  { icon: '💻', title: 'Coding Excellence', desc: 'DSA fundamentals for technical interviews' },
-  { icon: '📈', title: 'Industry Updates', desc: 'Real-time tech trends and best practices' }
+  { icon: '🧠', title: 'AI & Machine Learning', desc: 'Build intelligent systems with cutting-edge ML frameworks and LLM integrations', hidden: false },
+  { icon: '⚙️', title: 'DevOps Excellence', desc: 'Automate everything — from CI/CD pipelines to cloud-native infrastructure', hidden: false },
+  { icon: '💻', title: 'Coding Excellence', desc: 'DSA fundamentals for technical interviews', hidden: true },
+  { icon: '🚀', title: 'Real-World Projects', desc: 'Learn by building production-grade applications used by industry leaders', hidden: false }
 ];
 
+const visibleFeatures = features.filter(f => !f.hidden);
+
+// Stats labels - showcasing expertise areas
 const stats = [
-  { number: '100%', label: 'Free Content' },
-  { number: '1000+', label: 'Practice Resources' },
-  { number: '50+', label: 'Tech Articles' },
-  { number: '3', label: 'Core Domains' }
+  { number: '', label: 'Intelligent Systems' },
+  { number: '', label: 'Cloud Infrastructure' },
+  { number: '', label: 'Automation' },
+  { number: '', label: 'Best Practices' }
 ];
 
 const topics: Record<string, string[]> = {
   ai: [
-    'Machine Learning Fundamentals', 'Deep Learning & Neural Networks', 'Natural Language Processing',
-    'Computer Vision', 'LangChain & LLM Integration', 'OpenAI API & GPT Models',
-    'Model Training & Fine-tuning', 'ML Deployment & MLOps', 'TensorFlow & PyTorch',
-    'Transformers & BERT', 'RAG Systems', 'AI Ethics & Bias'
+    'Neural Networks & Deep Learning', 'Large Language Models (LLMs)', 'Prompt Engineering & RAG',
+    'Computer Vision & Image AI', 'LangChain & AI Agents', 'OpenAI & Anthropic APIs',
+    'Model Fine-tuning & Training', 'MLOps & Model Deployment', 'TensorFlow & PyTorch',
+    'Transformers Architecture', 'Vector Databases', 'Responsible AI Development'
   ],
   devops: [
-    'Git & Version Control', 'Docker & Containerization', 'Kubernetes Orchestration',
-    'CI/CD Pipelines', 'Jenkins & GitHub Actions', 'AWS Cloud Services',
-    'Azure & GCP Basics', 'Infrastructure as Code', 'Terraform & Ansible',
-    'Monitoring & Logging', 'Linux System Administration', 'Security Best Practices'
+    'Git Workflows & Branching', 'Docker & Containerization', 'Kubernetes at Scale',
+    'CI/CD Pipeline Design', 'GitHub Actions & Jenkins', 'AWS, Azure & GCP',
+    'Serverless Architecture', 'Infrastructure as Code', 'Terraform & Pulumi',
+    'Observability & Monitoring', 'Linux & Shell Scripting', 'Security & Compliance'
   ],
+  // Coding topics kept for future use
   coding: [
     'Arrays & Strings', 'Linked Lists', 'Stacks & Queues',
     'Trees & Graphs', 'Dynamic Programming', 'Greedy Algorithms',
@@ -67,55 +79,58 @@ const topics: Record<string, string[]> = {
   ]
 };
 
+// Articles - hide coding article for now
 const articles = [
-  { title: 'Getting Started with LangChain & RAG Systems', date: 'Jan 5, 2026', tag: 'AI/ML', icon: '🧠' },
-  { title: 'Kubernetes Best Practices for Production', date: 'Jan 3, 2026', tag: 'DevOps', icon: '⚙️' },
-  { title: 'Mastering Dynamic Programming Patterns', date: 'Dec 28, 2025', tag: 'Coding', icon: '💻' }
+  { title: 'Building Production RAG Systems with LangChain', date: 'Jan 2026', tag: 'AI/ML', icon: '🧠', hidden: false },
+  { title: 'Zero-Downtime Kubernetes Deployments', date: 'Jan 2026', tag: 'DevOps', icon: '⚙️', hidden: false },
+  { title: 'Mastering Dynamic Programming Patterns', date: 'Dec 2025', tag: 'Coding', icon: '💻', hidden: true }
 ];
+
+const visibleArticles = articles.filter(a => !a.hidden);
 
 // Enhanced Blog Posts (everythingdevops.dev style)
 const blogPosts = [
   {
     id: 1,
     featured: true,
-    title: 'Complete Guide to Building Production-Ready ML Pipelines',
-    excerpt: 'Learn how to design, implement, and deploy machine learning pipelines that scale. From data ingestion to model serving, we cover everything you need to know.',
+    title: 'From Zero to Production: Building Enterprise-Grade ML Pipelines',
+    excerpt: 'A comprehensive deep-dive into designing scalable ML infrastructure. Learn data versioning, model registry, automated retraining, and production monitoring strategies used by leading AI companies.',
     category: 'AI/ML',
     author: { name: 'Surendar SV', avatar: '👨‍💻' },
-    date: 'Jan 8, 2026',
+    date: 'Jan 2026',
     readTime: '12 min read',
     image: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
   },
   {
     id: 2,
     featured: false,
-    title: 'Docker to Kubernetes: A Practical Migration Guide',
-    excerpt: 'Step-by-step guide to containerizing your applications and deploying them on Kubernetes clusters.',
+    title: 'Kubernetes at Scale: Patterns That Actually Work',
+    excerpt: 'Battle-tested strategies for running production Kubernetes clusters. Cover auto-scaling, resource optimization, and zero-downtime deployments.',
     category: 'DevOps',
     author: { name: 'Surendar SV', avatar: '👨‍💻' },
-    date: 'Jan 6, 2026',
+    date: 'Jan 2026',
     readTime: '8 min read',
     image: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
   },
   {
     id: 3,
     featured: false,
-    title: 'Advanced Terraform Patterns for Enterprise',
-    excerpt: 'Master Infrastructure as Code with advanced Terraform modules, workspaces, and state management.',
+    title: 'Infrastructure as Code: Beyond the Basics',
+    excerpt: 'Advanced Terraform patterns, multi-cloud strategies, and GitOps workflows for enterprise-scale infrastructure management.',
     category: 'DevOps',
     author: { name: 'Surendar SV', avatar: '👨‍💻' },
-    date: 'Jan 4, 2026',
+    date: 'Jan 2026',
     readTime: '10 min read',
     image: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
   },
   {
     id: 4,
     featured: false,
-    title: 'Building RAG Systems with LangChain',
-    excerpt: 'Create powerful retrieval-augmented generation applications using LangChain and vector databases.',
+    title: 'LangChain + RAG: Building AI That Knows Your Data',
+    excerpt: 'Create intelligent applications that reason over your documents. Covers embeddings, vector stores, retrieval strategies, and production deployment.',
     category: 'AI/ML',
     author: { name: 'Surendar SV', avatar: '👨‍💻' },
-    date: 'Jan 2, 2026',
+    date: 'Jan 2026',
     readTime: '15 min read',
     image: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
   }
@@ -187,7 +202,7 @@ export default function Home() {
           <div className="nav-links">
             <a href="#" className="nav-link">AI/ML</a>
             <a href="#" className="nav-link">DevOps</a>
-            <a href="#" className="nav-link">Coding</a>
+            {/* <a href="#" className="nav-link">Coding</a> */}{/* Hidden for now */}
             <a href="#" className="nav-link">Articles</a>
             <a href="#" className="nav-link">Community</a>
 
@@ -215,7 +230,7 @@ export default function Home() {
           <div className="mobile-menu">
             <a href="#" className="mobile-link">AI/ML</a>
             <a href="#" className="mobile-link">DevOps</a>
-            <a href="#" className="mobile-link">Coding</a>
+            {/* <a href="#" className="mobile-link">Coding</a> */}{/* Hidden for now */}
             <a href="#" className="mobile-link">Articles</a>
             <a href="#" className="mobile-link">Community</a>
             <button className="btn-nav btn-block">Join Community</button>
@@ -227,29 +242,28 @@ export default function Home() {
       <section className="hero-section">
         <div className="container hero-content">
           <div className="hero-badge">
-            🤖 AI • ⚙️ DevOps • 💻 Coding - All Free Forever
+            🤖 AI/ML • ⚙️ DevOps — Build What Matters
           </div>
           <h1 className="hero-title">
-            Master <span className="text-orange">AI</span>, <span className="text-orange">DevOps</span><br />
-            & Coding
+            Master <span className="text-orange">AI</span> &amp; <span className="text-orange">DevOps</span>
           </h1>
           <p className="hero-subtitle">
-            Free learning resources focused on AI/ML, DevOps practices, and coding fundamentals.
-            Stay updated with real-time tech trends and build practical skills.
+            Go beyond tutorials. Build production-ready AI systems and scalable infrastructure
+            with battle-tested patterns from real-world projects.
           </p>
           <div className="hero-cta">
-            <button className="btn-primary btn-large">Start Learning (Free)</button>
-            <button className="btn-outline btn-large">Explore Resources</button>
+            <button className="btn-primary btn-large">Start Building</button>
+            <button className="btn-outline btn-large">Explore Guides</button>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Stats Section - Numbers hidden for now */}
       <section className="stats-section">
         <div className="container stats-grid">
           {stats.map((stat, idx) => (
             <div key={idx} className="stat-item">
-              <div className="stat-number">{stat.number}</div>
+              {/* <div className="stat-number">{stat.number}</div> */}{/* Numbers hidden */}
               <div className="stat-label">{stat.label}</div>
             </div>
           ))}
@@ -260,11 +274,11 @@ export default function Home() {
       <section className="section section-alt">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Our Core Focus</h2>
-            <p className="section-subtitle">Three domains that matter in modern tech</p>
+            <h2 className="section-title">What We Focus On</h2>
+            <p className="section-subtitle">The skills that power modern technology companies</p>
           </div>
           <div className="features-grid">
-            {features.map((feature, idx) => (
+            {visibleFeatures.map((feature, idx) => (
               <div key={idx} className="feature-card">
                 <div className="feature-icon">{feature.icon}</div>
                 <h3>{feature.title}</h3>
@@ -279,11 +293,11 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Choose Your Learning Path</h2>
-            <p className="section-subtitle">All content is free and community-driven</p>
+            <h2 className="section-title">Choose Your Path</h2>
+            <p className="section-subtitle">Deep-dive into the domain that excites you most</p>
           </div>
           <div className="paths-grid">
-            {learningPaths.map((path) => (
+            {visiblePaths.map((path) => (
               <div key={path.id} className="path-card">
                 <div className="path-header">
                   <span className="path-icon">{path.icon}</span>
@@ -308,12 +322,12 @@ export default function Home() {
       <section className="section section-alt">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">What You&apos;ll Learn</h2>
-            <p className="section-subtitle">Comprehensive coverage across AI, DevOps, and Coding</p>
+            <h2 className="section-title">Topics We Cover</h2>
+            <p className="section-subtitle">From fundamentals to advanced production patterns</p>
           </div>
 
           <div className="tabs-container">
-            {learningPaths.map((path) => (
+            {visiblePaths.map((path) => (
               <button
                 key={path.id}
                 onClick={() => setActiveTab(path.id)}
@@ -339,15 +353,15 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <div className="community-card">
-            <div className="community-icon">👥</div>
-            <h2>Join Our Learning Community</h2>
+            <div className="community-icon">🚀</div>
+            <h2>Join the Builder Community</h2>
             <p>
-              Connect with AI enthusiasts, DevOps engineers, and developers.
-              Share knowledge, discuss real-world implementations, and grow together.
+              Connect with engineers building the future. Share insights, get feedback on your projects,
+              and learn from practitioners at top tech companies.
             </p>
             <div className="community-cta">
-              <button className="btn-dark">Join Discord Community</button>
-              <button className="btn-outline-dark">Follow on Twitter</button>
+              <button className="btn-dark">Join on Discord</button>
+              <button className="btn-outline-dark">Follow Updates</button>
             </div>
           </div>
         </div>
@@ -357,11 +371,11 @@ export default function Home() {
       <section className="section section-alt">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Latest Tech Updates & Articles</h2>
-            <p className="section-subtitle">Stay ahead with real-time AI, DevOps & Coding insights</p>
+            <h2 className="section-title">Latest Insights</h2>
+            <p className="section-subtitle">Fresh perspectives on AI, DevOps, and cloud engineering</p>
           </div>
           <div className="articles-grid">
-            {articles.map((article, idx) => (
+            {visibleArticles.map((article, idx) => (
               <div key={idx} className="article-card">
                 <div className="article-header">
                   <span className="article-icon">{article.icon}</span>
@@ -382,8 +396,8 @@ export default function Home() {
       <section className="section" id="blog">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">From The Blog</h2>
-            <p className="section-subtitle">In-depth tutorials, guides, and industry insights</p>
+            <h2 className="section-title">Deep Dives</h2>
+            <p className="section-subtitle">Production-grade guides for serious engineers</p>
           </div>
 
           {/* Featured Post */}
@@ -437,8 +451,8 @@ export default function Home() {
       <section className="section section-alt" id="contact">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Get In Touch</h2>
-            <p className="section-subtitle">Have questions or want to collaborate? We&apos;d love to hear from you</p>
+            <h2 className="section-title">Let&apos;s Build Together</h2>
+            <p className="section-subtitle">Have an idea, question, or want to collaborate? Reach out</p>
           </div>
 
           <div className="contact-wrapper">
@@ -559,15 +573,15 @@ export default function Home() {
                 </div>
               </div>
               <p className="footer-tagline">Learning That Works IRL</p>
-              <p className="footer-domains">AI • DevOps • Coding</p>
-              <p className="footer-free">100% Free Forever</p>
+              <p className="footer-domains">AI/ML • DevOps</p>
+              <p className="footer-free">Learn & Build IRL</p>
             </div>
             <div className="footer-links">
               <h4>Learning Paths</h4>
               <ul>
                 <li><a href="#">AI & Machine Learning</a></li>
                 <li><a href="#">DevOps & Cloud</a></li>
-                <li><a href="#">DSA & Coding</a></li>
+                {/* <li><a href="#">DSA & Coding</a></li> */}{/* Hidden for now */}
                 <li><a href="#">Practice Problems</a></li>
               </ul>
             </div>
@@ -591,7 +605,7 @@ export default function Home() {
             </div>
           </div>
           <div className="footer-bottom">
-            <p>© 2026 KnowMoreIRL. Focused on AI, DevOps & Coding. All content is free.</p>
+            <p>© 2026 KnowMoreIRL. Focused on AI/ML &amp; DevOps.</p>
           </div>
         </div>
       </footer>

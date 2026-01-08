@@ -380,40 +380,58 @@ body {
 }
 
 /* ===================================
-   STATS SECTION
+   STATS SECTION - Premium Inline Labels
    =================================== */
 .stats-section {
-    padding: 3rem 0;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    background: var(--bg-secondary);
-    transition: background var(--transition-base), border-color var(--transition-base);
+    padding: 1.5rem 0;
+    background: transparent;
 }
 
 .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
 }
 
 .stat-item {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    position: relative;
+}
+
+/* Separator dot between items */
+.stat-item:not(:last-child)::after {
+    content: '•';
+    position: absolute;
+    right: 0;
+    color: var(--primary-orange);
+    opacity: 0.6;
+    font-size: 0.75rem;
 }
 
 .stat-number {
-    font-size: 2.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     background: linear-gradient(135deg, var(--primary-orange) 0%, var(--accent-orange) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 .stat-label {
     color: var(--text-secondary);
     font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
     transition: color var(--transition-base);
+}
+
+.stat-item:hover .stat-label {
+    color: var(--primary-orange);
 }
 
 /* ===================================
@@ -458,8 +476,10 @@ body {
    =================================== */
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .feature-card {
@@ -507,8 +527,10 @@ body {
    =================================== */
 .paths-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .path-card {
@@ -612,8 +634,10 @@ body {
     border-radius: var(--radius-xl);
     padding: 2rem;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
     transition: background var(--transition-base), border-color var(--transition-base);
 }
 
@@ -692,8 +716,10 @@ body {
    =================================== */
 .articles-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .article-card {
@@ -1139,15 +1165,23 @@ body {
    =================================== */
 @media (max-width: 1024px) {
     .features-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 100%;
     }
 
     .paths-grid {
         grid-template-columns: repeat(2, 1fr);
+        max-width: 100%;
     }
 
     .topics-grid {
         grid-template-columns: repeat(3, 1fr);
+        max-width: 100%;
+    }
+
+    .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 100%;
     }
 
     .footer-grid {
@@ -1155,7 +1189,7 @@ body {
     }
 
     .blog-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .contact-wrapper {
