@@ -73,10 +73,75 @@ const articles = [
   { title: 'Mastering Dynamic Programming Patterns', date: 'Dec 28, 2025', tag: 'Coding', icon: '💻' }
 ];
 
+// Enhanced Blog Posts (everythingdevops.dev style)
+const blogPosts = [
+  {
+    id: 1,
+    featured: true,
+    title: 'Complete Guide to Building Production-Ready ML Pipelines',
+    excerpt: 'Learn how to design, implement, and deploy machine learning pipelines that scale. From data ingestion to model serving, we cover everything you need to know.',
+    category: 'AI/ML',
+    author: { name: 'Surendar SV', avatar: '👨‍💻' },
+    date: 'Jan 8, 2026',
+    readTime: '12 min read',
+    image: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+  },
+  {
+    id: 2,
+    featured: false,
+    title: 'Docker to Kubernetes: A Practical Migration Guide',
+    excerpt: 'Step-by-step guide to containerizing your applications and deploying them on Kubernetes clusters.',
+    category: 'DevOps',
+    author: { name: 'Surendar SV', avatar: '👨‍💻' },
+    date: 'Jan 6, 2026',
+    readTime: '8 min read',
+    image: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+  },
+  {
+    id: 3,
+    featured: false,
+    title: 'Advanced Terraform Patterns for Enterprise',
+    excerpt: 'Master Infrastructure as Code with advanced Terraform modules, workspaces, and state management.',
+    category: 'DevOps',
+    author: { name: 'Surendar SV', avatar: '👨‍💻' },
+    date: 'Jan 4, 2026',
+    readTime: '10 min read',
+    image: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
+  },
+  {
+    id: 4,
+    featured: false,
+    title: 'Building RAG Systems with LangChain',
+    excerpt: 'Create powerful retrieval-augmented generation applications using LangChain and vector databases.',
+    category: 'AI/ML',
+    author: { name: 'Surendar SV', avatar: '👨‍💻' },
+    date: 'Jan 2, 2026',
+    readTime: '15 min read',
+    image: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
+  }
+];
+
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('ai');
   const [isDarkMode, setIsDarkMode] = useState(true);
+
+  // Contact form state
+  const [contactForm, setContactForm] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormSubmitted(true);
+    setContactForm({ firstName: '', lastName: '', email: '', subject: '', message: '' });
+    setTimeout(() => setFormSubmitted(false), 3000);
+  };
 
   // Load theme from localStorage on mount
   useEffect(() => {
@@ -309,6 +374,171 @@ export default function Home() {
           </div>
           <div className="section-cta">
             <button className="btn-primary">View All Articles</button>
+          </div>
+        </div>
+      </section>
+
+      {/* Enhanced Blog Section (everythingdevops.dev style) */}
+      <section className="section" id="blog">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">From The Blog</h2>
+            <p className="section-subtitle">In-depth tutorials, guides, and industry insights</p>
+          </div>
+
+          {/* Featured Post */}
+          {blogPosts.filter(p => p.featured).map(post => (
+            <div key={post.id} className="blog-featured" style={{ background: post.image }}>
+              <div className="blog-featured-overlay">
+                <span className="blog-category-pill">{post.category}</span>
+                <h2 className="blog-featured-title">{post.title}</h2>
+                <p className="blog-featured-excerpt">{post.excerpt}</p>
+                <div className="blog-featured-meta">
+                  <div className="blog-author">
+                    <span className="blog-author-avatar">{post.author.avatar}</span>
+                    <span className="blog-author-name">{post.author.name}</span>
+                  </div>
+                  <span className="blog-meta-divider">•</span>
+                  <span>{post.date}</span>
+                  <span className="blog-meta-divider">•</span>
+                  <span>{post.readTime}</span>
+                </div>
+                <button className="btn-primary">Read More →</button>
+              </div>
+            </div>
+          ))}
+
+          {/* Regular Blog Cards */}
+          <div className="blog-cards-grid">
+            {blogPosts.filter(p => !p.featured).map(post => (
+              <div key={post.id} className="blog-card">
+                <div className="blog-card-image" style={{ background: post.image }}></div>
+                <div className="blog-card-content">
+                  <h3 className="blog-card-title">{post.title}</h3>
+                  <p className="blog-card-excerpt">{post.excerpt}</p>
+                  <div className="blog-card-footer">
+                    <div className="blog-author-small">
+                      <span className="blog-author-avatar-small">{post.author.avatar}</span>
+                      <div>
+                        <span className="blog-author-name-small">{post.author.name}</span>
+                        <span className="blog-post-date">{post.date}</span>
+                      </div>
+                    </div>
+                    <span className="blog-category-tag">{post.category}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section (everythingdevops.dev style) */}
+      <section className="section section-alt" id="contact">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">Get In Touch</h2>
+            <p className="section-subtitle">Have questions or want to collaborate? We&apos;d love to hear from you</p>
+          </div>
+
+          <div className="contact-wrapper">
+            <div className="contact-info-card">
+              <h3>Let&apos;s Connect</h3>
+              <p>Whether you have a question about our content, want to suggest a topic, or are interested in collaborating, we&apos;re here to help.</p>
+
+              <div className="contact-details">
+                <div className="contact-item">
+                  <span className="contact-icon">📧</span>
+                  <div>
+                    <span className="contact-label">Email</span>
+                    <span className="contact-value">hello@knowmoreirl.com</span>
+                  </div>
+                </div>
+                <div className="contact-item">
+                  <span className="contact-icon">💬</span>
+                  <div>
+                    <span className="contact-label">Discord</span>
+                    <span className="contact-value">Join our community</span>
+                  </div>
+                </div>
+                <div className="contact-item">
+                  <span className="contact-icon">🐦</span>
+                  <div>
+                    <span className="contact-label">Twitter</span>
+                    <span className="contact-value">@knowmoreirl</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <form className="contact-form" onSubmit={handleContactSubmit}>
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="firstName">First Name</label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    placeholder="John"
+                    value={contactForm.firstName}
+                    onChange={(e) => setContactForm({ ...contactForm, firstName: e.target.value })}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="lastName">Last Name</label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    placeholder="Doe"
+                    value={contactForm.lastName}
+                    onChange={(e) => setContactForm({ ...contactForm, lastName: e.target.value })}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="john@example.com"
+                    value={contactForm.email}
+                    onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="subject">Subject</label>
+                  <select
+                    id="subject"
+                    value={contactForm.subject}
+                    onChange={(e) => setContactForm({ ...contactForm, subject: e.target.value })}
+                    required
+                  >
+                    <option value="">Select a topic</option>
+                    <option value="general">General Inquiry</option>
+                    <option value="content">Content Suggestion</option>
+                    <option value="collaboration">Collaboration</option>
+                    <option value="feedback">Feedback</option>
+                  </select>
+                </div>
+              </div>
+              <div className="form-group">
+                <label htmlFor="message">Message</label>
+                <textarea
+                  id="message"
+                  rows={5}
+                  placeholder="Please type your message here..."
+                  value={contactForm.message}
+                  onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" className="btn-primary btn-block btn-large">
+                {formSubmitted ? '✓ Message Sent!' : 'Send Message'}
+              </button>
+            </form>
           </div>
         </div>
       </section>
