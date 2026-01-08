@@ -5,12 +5,8 @@ export default function AboutSection() {
     <section className="about" id="about">
       <div className="container">
         <div className="section-header reveal">
-          <span className="section-tag">Who We Are</span>
-          <h2 className="section-title">Transforming Learning Into Mastery</h2>
-          <p className="section-subtitle">
-            We believe that every mistake is a stepping stone to success. Our platform is designed to help you
-            learn from errors and grow into an expert.
-          </p>
+          <span className="section-tag">Everything You Need</span>
+          <h2 className="section-title">Crack Your Dream Tech Job</h2>
         </div>
         <div className="about-content">
           {ABOUT_CARDS.map((card, index) => (

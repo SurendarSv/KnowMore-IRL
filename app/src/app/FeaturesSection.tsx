@@ -5,8 +5,8 @@ export default function FeaturesSection() {
     <section className="features" id="features">
       <div className="container">
         <div className="section-header reveal">
-          <span className="section-tag">What We Offer</span>
-          <h2 className="section-title">Premium Learning Features</h2>
+          <span className="section-tag">Premium Features</span>
+          <h2 className="section-title">Why Learn With Us?</h2>
         </div>
         <div className="features-grid">
           {FEATURES.map((feature, index) => (

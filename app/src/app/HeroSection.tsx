@@ -10,17 +10,17 @@ export default function HeroSection() {
       </div>
       <div className="container">
         <div className="hero-content reveal">
-          <div className="hero-badge">🚀 Welcome to the Future of Learning</div>
+          <div className="hero-badge">🚀 Your One-Stop Learning Platform</div>
           <h1 className="hero-title">
-            Learn. Grow. <span className="gradient-text">Innovate.</span>
+            Master <span className="gradient-text">TECH Interviews</span>
           </h1>
           <p className="hero-subtitle">
-            Unlock your potential with cutting-edge courses, hands-on projects, and a community that empowers
-            you to turn errors into expertise.
+            Learn DSA, System Design, and Core CS Subjects with personalized roadmaps,
+            expert videos, and practice built for results.
           </p>
           <div className="hero-cta">
-            <button className="btn-primary btn-large">Start Learning</button>
-            <button className="btn-secondary btn-large">Explore Courses</button>
+            <button className="btn-primary btn-large">Start Learning Free</button>
+            <button className="btn-secondary btn-large">Explore Plus</button>
           </div>
           <div className="hero-stats">
             {HERO_STATS.map((stat, index) => (

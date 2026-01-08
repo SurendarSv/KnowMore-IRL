@@ -3,7 +3,8 @@ import Navigation from './Navigation';
 import HeroSection from './HeroSection';
 import AboutSection from './AboutSection';
 import FeaturesSection from './FeaturesSection';
-import CoursesSection from './CoursesSection';
+import BlogSection from './BlogSection';
+import NewsletterSection from './NewsletterSection';
 import CTASection from './CTASection';
 import ContactSection from './ContactSection';
 import Footer from './Footer';
@@ -16,7 +17,8 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <FeaturesSection />
-      <CoursesSection />
+      <BlogSection />
+      <NewsletterSection />
       <CTASection />
       <ContactSection />
       <Footer />

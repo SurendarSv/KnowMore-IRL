@@ -906,6 +906,195 @@ section {
 }
 
 /* ===================================
+   BLOG SECTION
+   =================================== */
+.blog {
+    background: var(--bg-primary);
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+}
+
+.blog-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-base);
+    border: 1px solid var(--dark-border);
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-blue);
+}
+
+.blog-image {
+    height: 180px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1rem;
+    position: relative;
+}
+
+.blog-category {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--primary-blue);
+    padding: 0.4rem 0.875rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+
+.blog-content {
+    padding: 1.5rem 2rem 2rem;
+}
+
+.blog-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.blog-date,
+.blog-read-time {
+    font-weight: 500;
+}
+
+.blog-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.4;
+}
+
+.blog-content p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+}
+
+.blog-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-orange);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.blog-link:hover {
+    gap: 0.75rem;
+    color: var(--accent-orange-dark);
+}
+
+.blog-link span {
+    transition: transform var(--transition-fast);
+}
+
+.blog-link:hover span {
+    transform: translateX(4px);
+}
+
+/* ===================================
+   NEWSLETTER SECTION
+   =================================== */
+.newsletter {
+    background: var(--bg-secondary);
+    padding: 5rem 0;
+}
+
+.newsletter-wrapper {
+    background: var(--gradient-dark-card);
+    border-radius: var(--radius-lg);
+    padding: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    border: 1px solid var(--dark-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.newsletter-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: var(--gradient-accent);
+    border-radius: 50%;
+    filter: blur(150px);
+    opacity: 0.1;
+    top: -100px;
+    right: -100px;
+}
+
+.newsletter-content {
+    position: relative;
+    z-index: 1;
+}
+
+.newsletter-content .section-title {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.newsletter-description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+.newsletter-form {
+    position: relative;
+    z-index: 1;
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.input-wrapper input {
+    flex: 1;
+    padding: 1rem 1.25rem;
+    border: 2px solid var(--dark-border);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    transition: all var(--transition-base);
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: var(--accent-orange);
+    box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1);
+}
+
+.input-wrapper input::placeholder {
+    color: var(--text-secondary);
+}
+
+.newsletter-privacy {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+/* ===================================
    ANIMATIONS & UTILITIES
    =================================== */
 .reveal {
@@ -970,6 +1159,24 @@ section {
     .features-grid {
         grid-template-columns: 1fr;
     }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .newsletter-wrapper {
+        grid-template-columns: 1fr;
+        padding: 2.5rem;
+        text-align: center;
+    }
+
+    .newsletter-content .section-title {
+        text-align: center;
+    }
+
+    .input-wrapper {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 640px) {
@@ -1001,5 +1208,9 @@ section {
 
     .cta-content h2 {
         font-size: 2rem;
+    }
+
+    .newsletter-wrapper {
+        padding: 2rem;
     }
 }
