@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 // Learning paths - coding is hidden for now (set hidden: true to hide, false to show)
 const learningPaths = [
@@ -57,84 +58,9 @@ const stats = [
   { number: '', label: 'System Design' }
 ];
 
-const topics: Record<string, string[]> = {
-  ai: [
-    'How Neural Networks Actually Work', 'LLMs — Beyond the Buzzwords', 'Prompt Engineering in Practice',
-    'Computer Vision Fundamentals', 'Building with LangChain', 'Working with OpenAI APIs',
-    'Model Training vs Fine-tuning', 'Getting Models to Production', 'PyTorch in Real Projects',
-    'Understanding Transformers', 'When to Use Vector DBs', 'AI Ethics & Limitations'
-  ],
-  devops: [
-    'Git Beyond the Basics', 'Docker — How It Really Works', 'Kubernetes Without the Complexity',
-    'CI/CD That Makes Sense', 'GitHub Actions for Real Projects', 'AWS, Azure, GCP — Honest Comparisons',
-    'Serverless — When It Fits', 'Infrastructure as Code Fundamentals', 'Terraform in Practice',
-    'Monitoring That Matters', 'Linux for Engineers', 'Security Basics You Should Know'
-  ],
-  // Coding topics kept for future use
-  coding: [
-    'Arrays & Strings', 'Linked Lists', 'Stacks & Queues',
-    'Trees & Graphs', 'Dynamic Programming', 'Greedy Algorithms',
-    'Binary Search', 'Sliding Window', 'Two Pointers',
-    'Backtracking', 'Bit Manipulation', 'System Design Basics'
-  ]
-};
-
-// Articles - real content, no clickbait
-const articles = [
-  { title: 'How RAG Actually Works (and When It Doesn\'t)', date: 'Jan 2026', tag: 'AI/ML', icon: '🧠', hidden: false },
-  { title: 'Kubernetes in Production: What They Don\'t Tell You', date: 'Jan 2026', tag: 'DevOps', icon: '⚙️', hidden: false },
-  { title: 'Mastering Dynamic Programming Patterns', date: 'Dec 2025', tag: 'Coding', icon: '💻', hidden: true }
-];
+import { topics, blogPosts, articles } from '../data/content';
 
 const visibleArticles = articles.filter(a => !a.hidden);
-
-// Blog Posts - honest, practical content
-const blogPosts = [
-  {
-    id: 1,
-    featured: true,
-    title: 'ML Pipelines in Production: What Actually Matters',
-    excerpt: 'A practical look at building ML systems that work beyond notebooks. Data versioning, model registries, and monitoring — without the enterprise fluff.',
-    category: 'AI/ML',
-    author: { name: 'Surendar SV', avatar: '👨‍💻' },
-    date: 'Jan 2026',
-    readTime: '12 min read',
-    image: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
-  },
-  {
-    id: 2,
-    featured: false,
-    title: 'Kubernetes: The Parts That Actually Matter',
-    excerpt: 'Skip the complexity theater. Here\'s what you need to know to run containers in production without losing your mind.',
-    category: 'DevOps',
-    author: { name: 'Surendar SV', avatar: '👨‍💻' },
-    date: 'Jan 2026',
-    readTime: '8 min read',
-    image: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
-  },
-  {
-    id: 3,
-    featured: false,
-    title: 'Terraform Beyond Tutorials',
-    excerpt: 'Real patterns for managing infrastructure at scale. State management, modules, and the mistakes everyone makes.',
-    category: 'DevOps',
-    author: { name: 'Surendar SV', avatar: '👨‍💻' },
-    date: 'Jan 2026',
-    readTime: '10 min read',
-    image: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
-  },
-  {
-    id: 4,
-    featured: false,
-    title: 'RAG Systems: Building AI That Uses Your Data',
-    excerpt: 'How to build retrieval-augmented generation apps that actually work. Embeddings, vector stores, and practical deployment.',
-    category: 'AI/ML',
-    author: { name: 'Surendar SV', avatar: '👨‍💻' },
-    date: 'Jan 2026',
-    readTime: '15 min read',
-    image: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
-  }
-];
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -252,8 +178,18 @@ export default function Home() {
             actually works — in real environments, with real context.
           </p>
           <div className="hero-cta">
-            <button className="btn-primary btn-large">Start Exploring</button>
-            <button className="btn-outline btn-large">See What We Cover</button>
+            <button
+              className="btn-primary btn-large"
+              onClick={() => document.getElementById('recent-writes')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Start Exploring
+            </button>
+            <button
+              className="btn-outline btn-large"
+              onClick={() => document.getElementById('what-we-cover')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              See What We Cover
+            </button>
           </div>
         </div>
       </section>
@@ -319,7 +255,7 @@ export default function Home() {
       </section>
 
       {/* Topics Section */}
-      <section className="section section-alt">
+      <section className="section section-alt" id="what-we-cover">
         <div className="container">
           <div className="section-header">
             <h2 className="section-title">What We Cover</h2>
@@ -340,10 +276,14 @@ export default function Home() {
 
           <div className="topics-grid">
             {topics[activeTab].map((topic, idx) => (
-              <div key={idx} className="topic-item">
+              <Link
+                href={`/topics?topic=${encodeURIComponent(topic)}`}
+                key={idx}
+                className="topic-item hover:bg-white/5 transition-colors cursor-pointer block"
+              >
                 <span className="topic-star">⭐</span>
                 <span>{topic}</span>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -368,7 +308,7 @@ export default function Home() {
       </section>
 
       {/* Articles Section */}
-      <section className="section section-alt">
+      <section className="section section-alt" id="recent-writes">
         <div className="container">
           <div className="section-header">
             <h2 className="section-title">Recent Writes</h2>
@@ -376,14 +316,14 @@ export default function Home() {
           </div>
           <div className="articles-grid">
             {visibleArticles.map((article, idx) => (
-              <div key={idx} className="article-card">
+              <Link href={`/blog/${article.id}`} key={idx} className="article-card block hover:transform hover:scale-[1.02] transition-all duration-300 no-underline" style={{ color: 'inherit', textDecoration: 'none' }}>
                 <div className="article-header">
                   <span className="article-icon">{article.icon}</span>
                   <span className="article-tag">{article.tag}</span>
                 </div>
-                <h3>{article.title}</h3>
+                <h3 className="text-xl font-bold mb-2 text-[var(--text-primary)]">{article.title}</h3>
                 <div className="article-date">🕐 {article.date}</div>
-              </div>
+              </Link>
             ))}
           </div>
           <div className="section-cta">
