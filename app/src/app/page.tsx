@@ -7,9 +7,9 @@ const learningPaths = [
   {
     id: 'ai',
     title: 'AI & Machine Learning',
-    description: 'From neural networks to production-ready models. Build intelligent systems that transform industries.',
-    topics: 120,
-    problems: '300+',
+    description: 'Understand how AI actually works — from model inference to deployment pipelines. No hype, just clarity.',
+    topics: 'Growing',
+    problems: 'Evolving',
     status: '',
     icon: '🧠',
     hidden: false
@@ -17,9 +17,9 @@ const learningPaths = [
   {
     id: 'devops',
     title: 'DevOps & Cloud',
-    description: 'Master the art of automation. Deploy, scale, and manage infrastructure like top tech companies.',
-    topics: 95,
-    problems: '200+',
+    description: 'Learn how real teams ship software. CI/CD, containers, cloud — the way it works in production.',
+    topics: 'Growing',
+    problems: 'Evolving',
     status: '',
     icon: '⚙️',
     hidden: false
@@ -27,9 +27,9 @@ const learningPaths = [
   {
     id: 'coding',
     title: 'DSA & Coding',
-    description: 'Data Structures, Algorithms, and coding patterns for interviews',
-    topics: 180,
-    problems: '500+',
+    description: 'Data Structures, Algorithms, and coding patterns — practical problem solving.',
+    topics: 'Growing',
+    problems: 'Evolving',
     status: '',
     icon: '💻',
     hidden: true // Hidden for now - set to false to show again
@@ -39,36 +39,36 @@ const learningPaths = [
 // Filter to only show visible paths
 const visiblePaths = learningPaths.filter(p => !p.hidden);
 
-// Features - coding hidden for now
+// Features - what makes KnowMoreIRL different
 const features = [
-  { icon: '🧠', title: 'AI & Machine Learning', desc: 'Build intelligent systems with cutting-edge ML frameworks and LLM integrations', hidden: false },
-  { icon: '⚙️', title: 'DevOps Excellence', desc: 'Automate everything — from CI/CD pipelines to cloud-native infrastructure', hidden: false },
+  { icon: '🔍', title: 'Real-World Focus', desc: 'We explain how things work in actual environments — not textbook theory', hidden: false },
+  { icon: '🔄', title: 'Always Evolving', desc: 'Content updates with the industry. When tech changes, we change with it', hidden: false },
   { icon: '💻', title: 'Coding Excellence', desc: 'DSA fundamentals for technical interviews', hidden: true },
-  { icon: '🚀', title: 'Real-World Projects', desc: 'Learn by building production-grade applications used by industry leaders', hidden: false }
+  { icon: '👥', title: 'Community-Driven', desc: 'Built by engineers, for engineers. Learn in public, grow together', hidden: false }
 ];
 
 const visibleFeatures = features.filter(f => !f.hidden);
 
-// Stats labels - showcasing expertise areas
+// Stats labels - what we cover
 const stats = [
-  { number: '', label: 'Intelligent Systems' },
-  { number: '', label: 'Cloud Infrastructure' },
-  { number: '', label: 'Automation' },
-  { number: '', label: 'Best Practices' }
+  { number: '', label: 'AI & ML' },
+  { number: '', label: 'DevOps' },
+  { number: '', label: 'Cloud' },
+  { number: '', label: 'System Design' }
 ];
 
 const topics: Record<string, string[]> = {
   ai: [
-    'Neural Networks & Deep Learning', 'Large Language Models (LLMs)', 'Prompt Engineering & RAG',
-    'Computer Vision & Image AI', 'LangChain & AI Agents', 'OpenAI & Anthropic APIs',
-    'Model Fine-tuning & Training', 'MLOps & Model Deployment', 'TensorFlow & PyTorch',
-    'Transformers Architecture', 'Vector Databases', 'Responsible AI Development'
+    'How Neural Networks Actually Work', 'LLMs — Beyond the Buzzwords', 'Prompt Engineering in Practice',
+    'Computer Vision Fundamentals', 'Building with LangChain', 'Working with OpenAI APIs',
+    'Model Training vs Fine-tuning', 'Getting Models to Production', 'PyTorch in Real Projects',
+    'Understanding Transformers', 'When to Use Vector DBs', 'AI Ethics & Limitations'
   ],
   devops: [
-    'Git Workflows & Branching', 'Docker & Containerization', 'Kubernetes at Scale',
-    'CI/CD Pipeline Design', 'GitHub Actions & Jenkins', 'AWS, Azure & GCP',
-    'Serverless Architecture', 'Infrastructure as Code', 'Terraform & Pulumi',
-    'Observability & Monitoring', 'Linux & Shell Scripting', 'Security & Compliance'
+    'Git Beyond the Basics', 'Docker — How It Really Works', 'Kubernetes Without the Complexity',
+    'CI/CD That Makes Sense', 'GitHub Actions for Real Projects', 'AWS, Azure, GCP — Honest Comparisons',
+    'Serverless — When It Fits', 'Infrastructure as Code Fundamentals', 'Terraform in Practice',
+    'Monitoring That Matters', 'Linux for Engineers', 'Security Basics You Should Know'
   ],
   // Coding topics kept for future use
   coding: [
@@ -79,22 +79,22 @@ const topics: Record<string, string[]> = {
   ]
 };
 
-// Articles - hide coding article for now
+// Articles - real content, no clickbait
 const articles = [
-  { title: 'Building Production RAG Systems with LangChain', date: 'Jan 2026', tag: 'AI/ML', icon: '🧠', hidden: false },
-  { title: 'Zero-Downtime Kubernetes Deployments', date: 'Jan 2026', tag: 'DevOps', icon: '⚙️', hidden: false },
+  { title: 'How RAG Actually Works (and When It Doesn\'t)', date: 'Jan 2026', tag: 'AI/ML', icon: '🧠', hidden: false },
+  { title: 'Kubernetes in Production: What They Don\'t Tell You', date: 'Jan 2026', tag: 'DevOps', icon: '⚙️', hidden: false },
   { title: 'Mastering Dynamic Programming Patterns', date: 'Dec 2025', tag: 'Coding', icon: '💻', hidden: true }
 ];
 
 const visibleArticles = articles.filter(a => !a.hidden);
 
-// Enhanced Blog Posts (everythingdevops.dev style)
+// Blog Posts - honest, practical content
 const blogPosts = [
   {
     id: 1,
     featured: true,
-    title: 'From Zero to Production: Building Enterprise-Grade ML Pipelines',
-    excerpt: 'A comprehensive deep-dive into designing scalable ML infrastructure. Learn data versioning, model registry, automated retraining, and production monitoring strategies used by leading AI companies.',
+    title: 'ML Pipelines in Production: What Actually Matters',
+    excerpt: 'A practical look at building ML systems that work beyond notebooks. Data versioning, model registries, and monitoring — without the enterprise fluff.',
     category: 'AI/ML',
     author: { name: 'Surendar SV', avatar: '👨‍💻' },
     date: 'Jan 2026',
@@ -104,8 +104,8 @@ const blogPosts = [
   {
     id: 2,
     featured: false,
-    title: 'Kubernetes at Scale: Patterns That Actually Work',
-    excerpt: 'Battle-tested strategies for running production Kubernetes clusters. Cover auto-scaling, resource optimization, and zero-downtime deployments.',
+    title: 'Kubernetes: The Parts That Actually Matter',
+    excerpt: 'Skip the complexity theater. Here\'s what you need to know to run containers in production without losing your mind.',
     category: 'DevOps',
     author: { name: 'Surendar SV', avatar: '👨‍💻' },
     date: 'Jan 2026',
@@ -115,8 +115,8 @@ const blogPosts = [
   {
     id: 3,
     featured: false,
-    title: 'Infrastructure as Code: Beyond the Basics',
-    excerpt: 'Advanced Terraform patterns, multi-cloud strategies, and GitOps workflows for enterprise-scale infrastructure management.',
+    title: 'Terraform Beyond Tutorials',
+    excerpt: 'Real patterns for managing infrastructure at scale. State management, modules, and the mistakes everyone makes.',
     category: 'DevOps',
     author: { name: 'Surendar SV', avatar: '👨‍💻' },
     date: 'Jan 2026',
@@ -126,8 +126,8 @@ const blogPosts = [
   {
     id: 4,
     featured: false,
-    title: 'LangChain + RAG: Building AI That Knows Your Data',
-    excerpt: 'Create intelligent applications that reason over your documents. Covers embeddings, vector stores, retrieval strategies, and production deployment.',
+    title: 'RAG Systems: Building AI That Uses Your Data',
+    excerpt: 'How to build retrieval-augmented generation apps that actually work. Embeddings, vector stores, and practical deployment.',
     category: 'AI/ML',
     author: { name: 'Surendar SV', avatar: '👨‍💻' },
     date: 'Jan 2026',
@@ -242,18 +242,18 @@ export default function Home() {
       <section className="hero-section">
         <div className="container hero-content">
           <div className="hero-badge">
-            🤖 AI/ML • ⚙️ DevOps — Build What Matters
+            Learning tech as it actually works
           </div>
           <h1 className="hero-title">
-            Master <span className="text-orange">AI</span> &amp; <span className="text-orange">DevOps</span>
+            Learn <span className="text-orange">AI</span>, <span className="text-orange">DevOps</span> &amp; <span className="text-orange">Cloud</span>
           </h1>
           <p className="hero-subtitle">
-            Go beyond tutorials. Build production-ready AI systems and scalable infrastructure
-            with battle-tested patterns from real-world projects.
+            Not another course platform. KnowMoreIRL is where engineers learn how technology
+            actually works — in real environments, with real context.
           </p>
           <div className="hero-cta">
-            <button className="btn-primary btn-large">Start Building</button>
-            <button className="btn-outline btn-large">Explore Guides</button>
+            <button className="btn-primary btn-large">Start Exploring</button>
+            <button className="btn-outline btn-large">See What We Cover</button>
           </div>
         </div>
       </section>
@@ -274,8 +274,8 @@ export default function Home() {
       <section className="section section-alt">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">What We Focus On</h2>
-            <p className="section-subtitle">The skills that power modern technology companies</p>
+            <h2 className="section-title">Why KnowMoreIRL?</h2>
+            <p className="section-subtitle">We do things differently. Here's how.</p>
           </div>
           <div className="features-grid">
             {visibleFeatures.map((feature, idx) => (
@@ -293,8 +293,8 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Choose Your Path</h2>
-            <p className="section-subtitle">Deep-dive into the domain that excites you most</p>
+            <h2 className="section-title">Explore Topics</h2>
+            <p className="section-subtitle">Pick a domain. Start where you are.</p>
           </div>
           <div className="paths-grid">
             {visiblePaths.map((path) => (
@@ -310,7 +310,7 @@ export default function Home() {
                   <div className="path-stat">📚 {path.problems} Resources</div>
                 </div>
                 <button className="btn-primary btn-block">
-                  Start Learning →
+                  Explore →
                 </button>
               </div>
             ))}
@@ -322,8 +322,8 @@ export default function Home() {
       <section className="section section-alt">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Topics We Cover</h2>
-            <p className="section-subtitle">From fundamentals to advanced production patterns</p>
+            <h2 className="section-title">What We Cover</h2>
+            <p className="section-subtitle">Real topics. Practical depth. Always evolving.</p>
           </div>
 
           <div className="tabs-container">
@@ -353,15 +353,15 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <div className="community-card">
-            <div className="community-icon">🚀</div>
-            <h2>Join the Builder Community</h2>
+            <div className="community-icon">👋</div>
+            <h2>Learn in Public</h2>
             <p>
-              Connect with engineers building the future. Share insights, get feedback on your projects,
-              and learn from practitioners at top tech companies.
+              KnowMoreIRL is community-driven. Ask questions, share what you're building,
+              and learn from other engineers on the same journey.
             </p>
             <div className="community-cta">
-              <button className="btn-dark">Join on Discord</button>
-              <button className="btn-outline-dark">Follow Updates</button>
+              <button className="btn-dark">Join Discord</button>
+              <button className="btn-outline-dark">Follow on X</button>
             </div>
           </div>
         </div>
@@ -371,8 +371,8 @@ export default function Home() {
       <section className="section section-alt">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Latest Insights</h2>
-            <p className="section-subtitle">Fresh perspectives on AI, DevOps, and cloud engineering</p>
+            <h2 className="section-title">Recent Writes</h2>
+            <p className="section-subtitle">Practical takes on real engineering problems</p>
           </div>
           <div className="articles-grid">
             {visibleArticles.map((article, idx) => (
@@ -387,7 +387,7 @@ export default function Home() {
             ))}
           </div>
           <div className="section-cta">
-            <button className="btn-primary">View All Articles</button>
+            <button className="btn-primary">Read More</button>
           </div>
         </div>
       </section>
@@ -397,7 +397,7 @@ export default function Home() {
         <div className="container">
           <div className="section-header">
             <h2 className="section-title">Deep Dives</h2>
-            <p className="section-subtitle">Production-grade guides for serious engineers</p>
+            <p className="section-subtitle">Long-form guides for when you want the full picture</p>
           </div>
 
           {/* Featured Post */}
@@ -451,14 +451,14 @@ export default function Home() {
       <section className="section section-alt" id="contact">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Let&apos;s Build Together</h2>
-            <p className="section-subtitle">Have an idea, question, or want to collaborate? Reach out</p>
+            <h2 className="section-title">Say Hello</h2>
+            <p className="section-subtitle">Got feedback, a question, or just want to connect?</p>
           </div>
 
           <div className="contact-wrapper">
             <div className="contact-info-card">
-              <h3>Let&apos;s Connect</h3>
-              <p>Whether you have a question about our content, want to suggest a topic, or are interested in collaborating, we&apos;re here to help.</p>
+              <h3>Reach Out</h3>
+              <p>We read every message. Whether it's a content suggestion, a bug report, or just a hello — we're listening.</p>
 
               <div className="contact-details">
                 <div className="contact-item">
@@ -476,9 +476,9 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="contact-item">
-                  <span className="contact-icon">🐦</span>
+                  <span className="contact-icon">📬</span>
                   <div>
-                    <span className="contact-label">Twitter</span>
+                    <span className="contact-label">X (Twitter)</span>
                     <span className="contact-value">@knowmoreirl</span>
                   </div>
                 </div>
@@ -572,40 +572,40 @@ export default function Home() {
                   <span className="brand-irl">IRL</span>
                 </div>
               </div>
-              <p className="footer-tagline">Learning That Works IRL</p>
-              <p className="footer-domains">AI/ML • DevOps</p>
-              <p className="footer-free">Learn & Build IRL</p>
+              <p className="footer-tagline">Technology as it actually works</p>
+              <p className="footer-domains">AI • DevOps • Cloud • System Design</p>
+              <p className="footer-free">Community-driven learning</p>
             </div>
             <div className="footer-links">
-              <h4>Learning Paths</h4>
+              <h4>Topics</h4>
               <ul>
                 <li><a href="#">AI & Machine Learning</a></li>
                 <li><a href="#">DevOps & Cloud</a></li>
                 {/* <li><a href="#">DSA & Coding</a></li> */}{/* Hidden for now */}
-                <li><a href="#">Practice Problems</a></li>
+                <li><a href="#">System Design</a></li>
               </ul>
             </div>
             <div className="footer-links">
-              <h4>Resources</h4>
+              <h4>Content</h4>
               <ul>
-                <li><a href="#">Tech Articles</a></li>
-                <li><a href="#">Real-World Projects</a></li>
-                <li><a href="#">Interview Prep</a></li>
-                <li><a href="#">Community Forum</a></li>
+                <li><a href="#">Articles</a></li>
+                <li><a href="#">Deep Dives</a></li>
+                <li><a href="#">Guides</a></li>
+                <li><a href="#">Community</a></li>
               </ul>
             </div>
             <div className="footer-links">
               <h4>Connect</h4>
               <ul>
-                <li><a href="#">Discord Community</a></li>
-                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Discord</a></li>
+                <li><a href="#">X (Twitter)</a></li>
                 <li><a href="#">GitHub</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Contact</a></li>
               </ul>
             </div>
           </div>
           <div className="footer-bottom">
-            <p>© 2026 KnowMoreIRL. Focused on AI/ML &amp; DevOps.</p>
+            <p>© 2026 KnowMoreIRL. Built by engineers, for engineers.</p>
           </div>
         </div>
       </footer>
