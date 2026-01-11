@@ -41,7 +41,7 @@ export default function BlogPostPage({
                     <div className="topic-nav-links">
                         <Link href="/#what-we-cover">Topics</Link>
                         <Link href="/#recent-writes">Articles</Link>
-                        <Link href="/#blog">Deep Dives</Link>
+                        {/* <Link href="/#blog">Deep Dives</Link> */}{/* Hidden for now */}
                     </div>
                 </div>
             </nav>

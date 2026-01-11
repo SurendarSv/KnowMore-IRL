@@ -245,9 +245,6 @@ export default function Home() {
                   <div className="path-stat">✓ {path.topics} Topics Covered</div>
                   <div className="path-stat">📚 {path.problems} Resources</div>
                 </div>
-                <button className="btn-primary btn-block">
-                  Explore →
-                </button>
               </div>
             ))}
           </div>
@@ -333,7 +330,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Enhanced Blog Section (everythingdevops.dev style) */}
+      {/* Enhanced Blog Section - HIDDEN FOR NOW
       <section className="section" id="blog">
         <div className="container">
           <div className="section-header">
@@ -341,7 +338,6 @@ export default function Home() {
             <p className="section-subtitle">Long-form guides for when you want the full picture</p>
           </div>
 
-          {/* Featured Post */}
           {blogPosts.filter(p => p.featured).map(post => (
             <div key={post.id} className="blog-featured" style={{ background: post.image }}>
               <div className="blog-featured-overlay">
@@ -363,7 +359,6 @@ export default function Home() {
             </div>
           ))}
 
-          {/* Regular Blog Cards */}
           <div className="blog-cards-grid">
             {blogPosts.filter(p => !p.featured).map(post => (
               <div key={post.id} className="blog-card">
@@ -387,6 +382,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Contact Form Section (everythingdevops.dev style) */}
       <section className="section section-alt" id="contact">
@@ -530,7 +526,7 @@ export default function Home() {
               <h4>Content</h4>
               <ul>
                 <li><a href="#">Articles</a></li>
-                <li><a href="#">Deep Dives</a></li>
+                {/* <li><a href="#">Deep Dives</a></li> */}{/* Hidden for now */}
                 <li><a href="#">Guides</a></li>
                 <li><a href="#">Community</a></li>
               </ul>
