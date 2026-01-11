@@ -279,7 +279,8 @@ export default function Home() {
               <Link
                 href={`/topics?topic=${encodeURIComponent(topic)}`}
                 key={idx}
-                className="topic-item hover:bg-white/5 transition-colors cursor-pointer block"
+                className="topic-item hover:bg-white/5 transition-colors cursor-pointer block no-underline"
+                style={{ textDecoration: 'none' }}
               >
                 <span className="topic-star">⭐</span>
                 <span>{topic}</span>

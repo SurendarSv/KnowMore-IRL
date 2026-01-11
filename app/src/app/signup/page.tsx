@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import '../style.css';
 
 export default function SignupPage() {
     const [name, setName] = useState('');
@@ -37,47 +39,86 @@ export default function SignupPage() {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-vh-100">
-            <form onSubmit={handleSubmit} className="p-8 bg-gray-100 rounded shadow-md w-96">
-                <h2 className="text-2xl font-bold mb-6 text-center">Signup</h2>
-                {error && <p className="text-red-500 mb-4">{error}</p>}
-                <div className="mb-4">
-                    <label className="block text-gray-700 mb-2">Name</label>
-                    <input
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        className="w-full p-2 border border-gray-300 rounded"
-                        required
-                    />
+        <div className="site-wrapper coming-soon-page">
+            {/* Navigation Bar */}
+            <nav className="topic-nav">
+                <div className="container topic-nav-inner">
+                    <Link href="/" className="topic-brand">
+                        <svg width="28" height="28" viewBox="0 0 100 100">
+                            <polygon points="20,80 70,30 50,30 50,10" fill="currentColor" />
+                            <circle cx="75" cy="25" r="12" fill="#f59e42" />
+                        </svg>
+                        <span className="topic-brand-text">
+                            <span className="topic-brand-know">KnowMore</span>
+                            <span className="topic-brand-irl">IRL</span>
+                        </span>
+                    </Link>
+                    <div className="topic-nav-links">
+                        <Link href="/#what-we-cover">Topics</Link>
+                        <Link href="/#recent-writes">Articles</Link>
+                        <Link href="/#blog">Deep Dives</Link>
+                    </div>
                 </div>
-                <div className="mb-4">
-                    <label className="block text-gray-700 mb-2">Email</label>
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="w-full p-2 border border-gray-300 rounded"
-                        required
-                    />
+            </nav>
+
+            <div className="coming-soon-content">
+                <div className="auth-box">
+                    <h2 className="auth-title">Create Account</h2>
+                    <p className="auth-subtitle">Join the KnowMoreIRL community</p>
+
+                    {error && <div className="auth-error">{error}</div>}
+
+                    <form onSubmit={handleSubmit} className="auth-form">
+                        <div className="auth-field">
+                            <label htmlFor="name">Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                placeholder="Your name"
+                                required
+                            />
+                        </div>
+                        <div className="auth-field">
+                            <label htmlFor="email">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="you@example.com"
+                                required
+                            />
+                        </div>
+                        <div className="auth-field">
+                            <label htmlFor="password">Password</label>
+                            <input
+                                type="password"
+                                id="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                placeholder="••••••••"
+                                required
+                            />
+                        </div>
+                        <button type="submit" className="auth-submit">
+                            Create Account
+                        </button>
+                    </form>
+
+                    <p className="auth-switch">
+                        Already have an account? <Link href="/login">Sign in</Link>
+                    </p>
                 </div>
-                <div className="mb-6">
-                    <label className="block text-gray-700 mb-2">Password</label>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        className="w-full p-2 border border-gray-300 rounded"
-                        required
-                    />
+            </div>
+
+            {/* Footer */}
+            <footer className="topic-footer">
+                <div className="container">
+                    <p>© 2026 KnowMoreIRL. Built by engineers, for engineers.</p>
                 </div>
-                <button
-                    type="submit"
-                    className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
-                >
-                    Signup
-                </button>
-            </form>
+            </footer>
         </div>
     );
 }
