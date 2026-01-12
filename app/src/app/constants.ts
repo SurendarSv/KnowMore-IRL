@@ -111,8 +111,8 @@ export const COURSES: CourseCard[] = [
   {
     image: "linear-gradient(135deg, #FF6B00 0%, #FFA726 100%)",
     badge: "New",
-    title: "Data Science & AI",
-    description: "Dive into machine learning, deep learning, and AI with Python and TensorFlow.",
+    title: "Data Science & Gen AI",
+    description: "Dive into machine learning, deep learning, and Gen AI with Python and TensorFlow.",
     duration: "⏱️ 16 weeks",
     level: "📊 Advanced",
   },

@@ -7,8 +7,8 @@ import Link from 'next/link';
 const learningPaths = [
   {
     id: 'ai',
-    title: 'AI & Machine Learning',
-    description: 'Understand how AI actually works — from model inference to deployment pipelines. No hype, just clarity.',
+    title: 'Gen AI & Machine Learning',
+    description: 'Understand how Gen AI actually works — from model inference to deployment pipelines. No hype, just clarity.',
     topics: 'Growing',
     problems: 'Evolving',
     status: '',
@@ -52,7 +52,7 @@ const visibleFeatures = features.filter(f => !f.hidden);
 
 // Stats labels - what we cover
 const stats = [
-  { number: '', label: 'AI & ML' },
+  { number: '', label: 'Gen AI & ML' },
   { number: '', label: 'DevOps' },
   { number: '', label: 'Cloud' },
   { number: '', label: 'System Design' }
@@ -114,19 +114,14 @@ export default function Home() {
       <nav className="nav-main">
         <div className="container nav-container">
           <div className="nav-brand">
-            <svg width="40" height="40" viewBox="0 0 100 100" className="nav-logo">
-              <polygon points="20,80 70,30 50,30 50,10" fill={isDarkMode ? "#ffffff" : "#1a1a1a"} />
-              <circle cx="75" cy="25" r="12" fill="#f59e42" />
-            </svg>
             <div className="brand-text">
-              <span className="brand-know">KnowMore</span>
-              <span className="brand-irl">IRL</span>
+              <span className="brand-know">KnowMore</span>→<span className="brand-irl">IRL</span>
             </div>
           </div>
 
           {/* Desktop Menu */}
           <div className="nav-links">
-            <a href="#" className="nav-link">AI/ML</a>
+            <a href="#" className="nav-link">Gen AI/ML</a>
             <a href="#" className="nav-link">DevOps</a>
             {/* <a href="#" className="nav-link">Coding</a> */}{/* Hidden for now */}
             <a href="#" className="nav-link">Articles</a>
@@ -154,7 +149,7 @@ export default function Home() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="mobile-menu">
-            <a href="#" className="mobile-link">AI/ML</a>
+            <a href="#" className="mobile-link">Gen AI/ML</a>
             <a href="#" className="mobile-link">DevOps</a>
             {/* <a href="#" className="mobile-link">Coding</a> */}{/* Hidden for now */}
             <a href="#" className="mobile-link">Articles</a>
@@ -171,7 +166,7 @@ export default function Home() {
             Learning tech as it actually works
           </div>
           <h1 className="hero-title">
-            Learn <span className="text-orange">AI</span>, <span className="text-orange">DevOps</span> &amp; <span className="text-orange">Cloud</span>
+            Learn <span className="text-orange">Gen AI</span>, <span className="text-orange">DevOps</span> &amp; <span className="text-orange">Cloud</span>
           </h1>
           <p className="hero-subtitle">
             Not another course platform. KnowMoreIRL is where engineers learn how technology
@@ -500,23 +495,18 @@ export default function Home() {
           <div className="footer-grid">
             <div className="footer-brand">
               <div className="nav-brand">
-                <svg width="32" height="32" viewBox="0 0 100 100">
-                  <polygon points="20,80 70,30 50,30 50,10" fill={isDarkMode ? "#ffffff" : "#1a1a1a"} />
-                  <circle cx="75" cy="25" r="12" fill="#f59e42" />
-                </svg>
                 <div className="brand-text">
-                  <span className="brand-know">KnowMore</span>
-                  <span className="brand-irl">IRL</span>
+                  <span className="brand-know">KnowMore</span>→<span className="brand-irl">IRL</span>
                 </div>
               </div>
               <p className="footer-tagline">Technology as it actually works</p>
-              <p className="footer-domains">AI • DevOps • Cloud • System Design</p>
+              <p className="footer-domains">Gen AI • DevOps • Cloud • System Design</p>
               <p className="footer-free">Community-driven learning</p>
             </div>
             <div className="footer-links">
               <h4>Topics</h4>
               <ul>
-                <li><a href="#">AI & Machine Learning</a></li>
+                <li><a href="#">Gen AI & Machine Learning</a></li>
                 <li><a href="#">DevOps & Cloud</a></li>
                 {/* <li><a href="#">DSA & Coding</a></li> */}{/* Hidden for now */}
                 <li><a href="#">System Design</a></li>

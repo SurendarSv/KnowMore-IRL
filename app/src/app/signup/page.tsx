@@ -44,13 +44,8 @@ export default function SignupPage() {
             <nav className="topic-nav">
                 <div className="container topic-nav-inner">
                     <Link href="/" className="topic-brand">
-                        <svg width="28" height="28" viewBox="0 0 100 100">
-                            <polygon points="20,80 70,30 50,30 50,10" fill="currentColor" />
-                            <circle cx="75" cy="25" r="12" fill="#f59e42" />
-                        </svg>
                         <span className="topic-brand-text">
-                            <span className="topic-brand-know">KnowMore</span>
-                            <span className="topic-brand-irl">IRL</span>
+                            <span className="topic-brand-know">KnowMore</span>→<span className="topic-brand-irl">IRL</span>
                         </span>
                     </Link>
                     <div className="topic-nav-links">

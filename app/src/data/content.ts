@@ -4,8 +4,8 @@ export const blogPosts = [
         featured: true,
         title: 'ML Pipelines in Production: What Actually Matters',
         excerpt: 'A practical look at building ML systems that work beyond notebooks. Data versioning, model registries, and monitoring — without the enterprise fluff.',
-        category: 'AI/ML',
-        author: { name: 'Surendar SV', avatar: '👨‍💻' },
+        category: 'Gen AI/ML',
+        author: { name: 'Vikashvar R', avatar: '🧠' },
         date: 'Jan 2026',
         readTime: '12 min read',
         image: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -95,8 +95,8 @@ Split your environments (prod, stage, dev). Don't use workspaces for environment
         featured: false,
         title: 'RAG Systems: Building AI That Uses Your Data',
         excerpt: 'How to build retrieval-augmented generation apps that actually work. Embeddings, vector stores, and practical deployment.',
-        category: 'AI/ML',
-        author: { name: 'Surendar SV', avatar: '👨‍💻' },
+        category: 'Gen AI/ML',
+        author: { name: 'Vikashvar R', avatar: '🧠' },
         date: 'Jan 2026',
         readTime: '15 min read',
         image: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
@@ -147,12 +147,12 @@ export const topics: Record<string, string[]> = {
 };
 // Articles - real content, no clickbait
 export const articles = [
-    { id: 4, title: 'How RAG Actually Works (and When It Doesn\'t)', date: 'Jan 2026', tag: 'AI/ML', icon: '🧠', hidden: false },
+    { id: 4, title: 'How RAG Actually Works (and When It Doesn\'t)', date: 'Jan 2026', tag: 'Gen AI/ML', icon: '🧠', hidden: false },
     { id: 2, title: 'Kubernetes in Production: What They Don\'t Tell You', date: 'Jan 2026', tag: 'DevOps', icon: '⚙️', hidden: false },
     { id: 1, title: 'Mastering Dynamic Programming Patterns', date: 'Dec 2025', tag: 'Coding', icon: '💻', hidden: true }
 ];
 
-// Topic Articles - Full content for each topic
+// Topic Articles - Full content for each topic (currently empty - all show coming soon)
 export const topicArticles: Record<string, {
     title: string;
     category: string;
@@ -164,238 +164,6 @@ export const topicArticles: Record<string, {
     sections: { heading: string; content: string }[];
     relatedTopics: string[];
 }> = {
-    'How Neural Networks Actually Work': {
-        title: 'How Neural Networks Actually Work',
-        category: 'AI/ML',
-        readTime: '15 min read',
-        author: { name: 'Surendar SV', avatar: '👨‍💻' },
-        date: 'Jan 2026',
-        excerpt: 'A no-hype explanation of neural networks. From perceptrons to backpropagation — how the math actually flows and why it matters for real applications.',
-        highlights: [
-            'What neurons really compute (it\'s just weighted sums)',
-            'Why activation functions exist and which ones to use',
-            'Backpropagation explained without the complexity theater',
-            'Common pitfalls when training your first networks'
-        ],
-        sections: [
-            {
-                heading: 'The Basics: What Is a Neural Network?',
-                content: `A neural network is a function approximator. That's it. All the hype, all the buzzwords — at the core, you're building a function that takes inputs and produces outputs.
-
-The magic isn't in any single component. It's in how simple operations compose to approximate incredibly complex functions.
-
-A single neuron takes inputs, multiplies each by a weight, adds them together, adds a bias, and passes the result through an activation function. That's the whole thing.`
-            },
-            {
-                heading: 'Layers: Stacking Simple Operations',
-                content: `When you stack neurons in layers, something interesting happens. Each layer learns to extract different features from the data.
-
-In image recognition:
-- Early layers learn edges and textures
-- Middle layers learn shapes and patterns
-- Later layers learn high-level concepts (faces, objects)
-
-This hierarchical learning isn't something we program — it emerges from training. The network discovers what features are useful for the task.`
-            },
-            {
-                heading: 'Backpropagation: How Networks Learn',
-                content: `Training a neural network means adjusting weights to minimize error. Backpropagation is the algorithm that makes this efficient.
-
-The key insight: we can use the chain rule from calculus to compute how each weight affects the final error. Then we nudge each weight in the direction that reduces error.
-
-This is gradient descent. We're walking downhill on an error surface, and backprop tells us which direction is "downhill" for every weight simultaneously.
-
-The math isn't magic — it's just derivatives applied systematically. The scale is what makes it impressive: billions of weights, updated in parallel, across millions of examples.`
-            },
-            {
-                heading: 'Common Mistakes When Starting Out',
-                content: `**1. Not normalizing inputs**
-Networks train better when inputs are centered around zero with similar scales. Skip this, and one feature dominates.
-
-**2. Learning rate too high or too low**
-Too high: training explodes. Too low: training takes forever. Start with 0.001, adjust from there.
-
-**3. Overfitting on small datasets**
-If your network has more parameters than data points, you're just memorizing. Use regularization, dropout, or get more data.
-
-**4. Ignoring the loss curve**
-If loss isn't decreasing, something is wrong. If validation loss increases while training loss decreases, you're overfitting. Watch the curves.`
-            },
-            {
-                heading: 'When to Use (and Not Use) Neural Networks',
-                content: `Neural networks excel when:
-- You have lots of data
-- The patterns are complex and non-linear
-- Feature engineering would be painful
-
-They're overkill when:
-- A linear model would work
-- You have limited data
-- Interpretability is critical
-
-Don't reach for deep learning first. Try simpler methods. If they fail, then escalate. A 3-line logistic regression that works is better than a 300-layer transformer that doesn't.`
-            }
-        ],
-        relatedTopics: ['Understanding Transformers', 'Model Training vs Fine-tuning', 'Getting Models to Production']
-    },
-    'LLMs — Beyond the Buzzwords': {
-        title: 'LLMs — Beyond the Buzzwords',
-        category: 'AI/ML',
-        readTime: '12 min read',
-        author: { name: 'Surendar SV', avatar: '👨‍💻' },
-        date: 'Jan 2026',
-        excerpt: 'Cut through the marketing noise. Understand what Large Language Models actually are, how they work, and what they can (and can\'t) do.',
-        highlights: [
-            'What LLMs actually learn during training',
-            'Tokenization and why it matters',
-            'The limits of "understanding" — what LLMs can\'t do',
-            'Practical use cases that make sense today'
-        ],
-        sections: [
-            {
-                heading: 'What LLMs Actually Are',
-                content: `Large Language Models are prediction machines. Given a sequence of tokens, they predict the next token. That's the core mechanism.
-
-The "large" part refers to parameters — GPT-4 has over a trillion. More parameters allow the model to capture more patterns, but it's still fundamentally doing the same thing: next-token prediction.
-
-What makes this useful is that predicting text well requires learning a lot about the world. You can't predict "The capital of France is ___" without knowing something about geography.`
-            },
-            {
-                heading: 'Training: Three Phases',
-                content: `**1. Pre-training**
-Feed the model massive amounts of text. It learns grammar, facts, reasoning patterns — all by predicting the next word. This is expensive (millions of dollars).
-
-**2. Instruction Fine-tuning**
-Train on examples of instructions and responses. The model learns to follow commands, not just predict text.
-
-**3. RLHF (Reinforcement Learning from Human Feedback)**
-Humans rate outputs. The model learns what humans prefer. This is what makes ChatGPT feel "aligned" with what you want.`
-            },
-            {
-                heading: 'What LLMs Can\'t Do',
-                content: `**They don't "understand" — they pattern-match**
-An LLM has no world model. It can't verify if what it says is true. It generates plausible text based on patterns.
-
-**They can't do reliable math**
-Tokenization breaks numbers weirdly. "123456" isn't seen as a number — it's tokens. Simple arithmetic fails on novel numbers.
-
-**They have no persistent memory**
-Each conversation starts fresh. There's no learning between sessions unless you build that layer.
-
-**Reasoning is fragile**
-LLMs can appear to reason, but it's pattern matching on reasoning examples. Push beyond training distribution and it falls apart.`
-            }
-        ],
-        relatedTopics: ['Prompt Engineering in Practice', 'Building with LangChain', 'Working with OpenAI APIs']
-    },
-    'Docker — How It Really Works': {
-        title: 'Docker — How It Really Works',
-        category: 'DevOps',
-        readTime: '10 min read',
-        author: { name: 'Surendar SV', avatar: '👨‍💻' },
-        date: 'Jan 2026',
-        excerpt: 'Containers demystified. What\'s actually happening when you run docker run, and why it matters for building reliable applications.',
-        highlights: [
-            'Containers are not VMs — here\'s the actual difference',
-            'What namespaces and cgroups do under the hood',
-            'Image layers and why they matter for build speed',
-            'Common Docker mistakes and how to avoid them'
-        ],
-        sections: [
-            {
-                heading: 'Containers Are Not VMs',
-                content: `This is crucial. A container is not a lightweight VM. There's no virtualized hardware. No guest OS.
-
-A container is a process. That's it. It's your application running in an isolated environment, but it's still just a Linux process sharing the host kernel.
-
-The isolation comes from kernel features — namespaces and cgroups — not from virtualization. This is why containers start in milliseconds while VMs take minutes.`
-            },
-            {
-                heading: 'Namespaces: Isolation',
-                content: `Linux namespaces give processes their own view of the system:
-
-- **PID namespace**: Process sees itself as PID 1
-- **Network namespace**: Its own network stack, IP addresses
-- **Mount namespace**: Its own filesystem view
-- **User namespace**: Can appear as root inside, unprivileged outside
-
-When you exec into a container, you're entering these namespaces. The container thinks it's alone on the system. It's not.`
-            },
-            {
-                heading: 'Cgroups: Resource Limits',
-                content: `Control groups limit what resources a container can use:
-
-- CPU: How much processing time
-- Memory: Hard limits, OOM killer if exceeded
-- I/O: Disk bandwidth limits
-
-This is why containers can't hog the host. cgroups enforce the quotas. Without them, a runaway container could starve everything else.`
-            },
-            {
-                heading: 'Image Layers: Why They Matter',
-                content: `Docker images are layers. Each Dockerfile instruction creates a layer. Layers are cached and shared.
-
-Why this matters:
-- **Build speed**: Change one line, only rebuild that layer and above
-- **Disk space**: Common base images are shared between containers
-- **Pull speed**: Only download layers you don't have
-
-Order your Dockerfile wisely: put things that change rarely at the top, things that change often at the bottom.`
-            }
-        ],
-        relatedTopics: ['Kubernetes Without the Complexity', 'CI/CD That Makes Sense', 'Infrastructure as Code Fundamentals']
-    },
-    'Kubernetes Without the Complexity': {
-        title: 'Kubernetes Without the Complexity',
-        category: 'DevOps',
-        readTime: '12 min read',
-        author: { name: 'Surendar SV', avatar: '👨‍💻' },
-        date: 'Jan 2026',
-        excerpt: 'A practical guide to Kubernetes that focuses on what you actually need. Skip the complexity theater, get containers running in production.',
-        highlights: [
-            'The 5 resources you actually need to know',
-            'Mental model: what Kubernetes is trying to do',
-            'Debugging pods that won\'t start',
-            'When to use (and not use) Kubernetes'
-        ],
-        sections: [
-            {
-                heading: 'The Mental Model',
-                content: `Kubernetes does one thing: it runs containers where you tell it to and keeps them running.
-
-You declare the desired state ("I want 3 replicas of this container"), and Kubernetes makes it happen. If a container dies, it starts a new one. If a node fails, it moves containers to healthy nodes.
-
-That's the core value. Everything else is details.`
-            },
-            {
-                heading: 'The Core 5 Resources',
-                content: `**Pod**: One or more containers that run together. The atomic unit.
-
-**Deployment**: Manages pods. Handles rollouts, scaling, and updates.
-
-**Service**: Stable networking. Pods come and go, but the Service IP stays constant.
-
-**Ingress**: Routes external traffic to Services. Your entry point.
-
-**ConfigMap/Secret**: Configuration and sensitive data, injected into pods.
-
-Start here. Ignore everything else until you need it.`
-            },
-            {
-                heading: 'When a Pod Won\'t Start',
-                content: `Check these in order:
-
-1. **kubectl describe pod <name>**: Look at Events at the bottom
-2. **kubectl logs <pod>**: Application logs
-3. **kubectl get events**: Cluster-wide events
-
-Common culprits:
-- Image pull failures (wrong registry, auth issues)
-- Resource limits (not enough memory requested)
-- ConfigMap/Secret not found
-- Liveness probe failing immediately`
-            }
-        ],
-        relatedTopics: ['Docker — How It Really Works', 'CI/CD That Makes Sense', 'Monitoring That Matters']
-    }
+    // All topics show "Coming Soon" for now
 };
+
