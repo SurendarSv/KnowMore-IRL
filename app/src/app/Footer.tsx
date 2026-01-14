@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2025 KnowMoreIRL. All rights reserved. Built with ❤️ for learners.</p>
+          <p>&copy; 2026 KnowMoreIRL. All rights reserved. Built with ❤️ for learners.</p>
         </div>
       </div>
     </footer>

@@ -125,7 +125,7 @@ export default function Home() {
             <a href="#" className="nav-link">DevOps</a>
             {/* <a href="#" className="nav-link">Coding</a> */}{/* Hidden for now */}
             <a href="#" className="nav-link">Articles</a>
-            <a href="#" className="nav-link">Community</a>
+            <a href="#services" className="nav-link">Services</a>
 
             {/* Theme Toggle Button */}
             <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
@@ -153,7 +153,7 @@ export default function Home() {
             <a href="#" className="mobile-link">DevOps</a>
             {/* <a href="#" className="mobile-link">Coding</a> */}{/* Hidden for now */}
             <a href="#" className="mobile-link">Articles</a>
-            <a href="#" className="mobile-link">Community</a>
+            <a href="#services" className="mobile-link">Services</a>
             <button className="btn-nav btn-block">Join Community</button>
           </div>
         )}
@@ -293,8 +293,8 @@ export default function Home() {
               and learn from other engineers on the same journey.
             </p>
             <div className="community-cta">
-              <button className="btn-dark">Join Discord</button>
-              <button className="btn-outline-dark">Follow on X</button>
+              <a href="https://discord.gg/TFQU4Js5" target="_blank" rel="noopener noreferrer" className="btn-dark">Join Discord</a>
+              <a href="https://x.com/Knowmoreirl" target="_blank" rel="noopener noreferrer" className="btn-outline-dark">Follow on X</a>
             </div>
           </div>
         </div>
@@ -379,6 +379,53 @@ export default function Home() {
       </section>
       */}
 
+      {/* Services Section */}
+      <section className="section" id="services">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">Our Services</h2>
+            <p className="section-subtitle">Expert support to accelerate your engineering career and projects</p>
+          </div>
+
+          <div className="services-grid">
+            <div className="service-card">
+              <div className="service-icon">💻</div>
+              <h3 className="service-title">1:1 Technical Consulting</h3>
+              <p className="service-description">Get personalized technical guidance from experienced engineers. Architecture reviews, code audits, and problem-solving sessions.</p>
+              <a href="#contact" className="service-cta">Book a Session →</a>
+            </div>
+
+            <div className="service-card">
+              <div className="service-icon">🚀</div>
+              <h3 className="service-title">Freelancing (End-to-End Support)</h3>
+              <p className="service-description">Complete technical support for your projects. From ideation to deployment, we handle the engineering so you can focus on your business.</p>
+              <a href="#contact" className="service-cta">Get Started →</a>
+            </div>
+
+            <div className="service-card">
+              <div className="service-icon">☁️</div>
+              <h3 className="service-title">Cloud & DevOps Consulting</h3>
+              <p className="service-description">Optimize your infrastructure with Kubernetes, Terraform, CI/CD pipelines, and cloud-native best practices. Make your deployments reliable.</p>
+              <a href="#contact" className="service-cta">Let's Talk →</a>
+            </div>
+
+            <div className="service-card">
+              <div className="service-icon">🎯</div>
+              <h3 className="service-title">1:1 Career Guidance</h3>
+              <p className="service-description">Navigate your engineering career with confidence. Resume reviews, interview prep, and personalized roadmaps to reach your goals.</p>
+              <a href="#contact" className="service-cta">Book a Call →</a>
+            </div>
+
+            <div className="service-card">
+              <div className="service-icon">📚</div>
+              <h3 className="service-title">Mentorship & Learning Support</h3>
+              <p className="service-description">Structured mentorship to help you master new technologies. Regular check-ins, project guidance, and accountability to keep you on track.</p>
+              <a href="#contact" className="service-cta">Find a Mentor →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Form Section (everythingdevops.dev style) */}
       <section className="section section-alt" id="contact">
         <div className="container">
@@ -393,27 +440,27 @@ export default function Home() {
               <p>We read every message. Whether it's a content suggestion, a bug report, or just a hello — we're listening.</p>
 
               <div className="contact-details">
-                <div className="contact-item">
+                <a href="mailto:knowmoreirl@zohomail.in" className="contact-item">
                   <span className="contact-icon">📧</span>
                   <div>
                     <span className="contact-label">Email</span>
-                    <span className="contact-value">hello@knowmoreirl.com</span>
+                    <span className="contact-value">knowmoreirl@zohomail.in</span>
                   </div>
-                </div>
-                <div className="contact-item">
+                </a>
+                <a href="https://discord.gg/TFQU4Js5" target="_blank" rel="noopener noreferrer" className="contact-item">
                   <span className="contact-icon">💬</span>
                   <div>
                     <span className="contact-label">Discord</span>
                     <span className="contact-value">Join our community</span>
                   </div>
-                </div>
-                <div className="contact-item">
+                </a>
+                <a href="https://x.com/Knowmoreirl" target="_blank" rel="noopener noreferrer" className="contact-item">
                   <span className="contact-icon">📬</span>
                   <div>
                     <span className="contact-label">X (Twitter)</span>
-                    <span className="contact-value">@knowmoreirl</span>
+                    <span className="contact-value">@Knowmoreirl</span>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
 
@@ -526,7 +573,6 @@ export default function Home() {
               <ul>
                 <li><a href="#">Discord</a></li>
                 <li><a href="#">X (Twitter)</a></li>
-                <li><a href="#">GitHub</a></li>
                 <li><a href="#">Contact</a></li>
               </ul>
             </div>
