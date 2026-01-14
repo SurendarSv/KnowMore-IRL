@@ -392,35 +392,35 @@ export default function Home() {
               <div className="service-icon">💻</div>
               <h3 className="service-title">1:1 Technical Consulting</h3>
               <p className="service-description">Get personalized technical guidance from experienced engineers. Architecture reviews, code audits, and problem-solving sessions.</p>
-              <a href="#contact" className="service-cta">Book a Session →</a>
+              <a href="https://topmate.io/knowmore_irl" target="_blank" rel="noopener noreferrer" className="service-cta">Book a Session →</a>
             </div>
 
             <div className="service-card">
               <div className="service-icon">🚀</div>
               <h3 className="service-title">Freelancing (End-to-End Support)</h3>
               <p className="service-description">Complete technical support for your projects. From ideation to deployment, we handle the engineering so you can focus on your business.</p>
-              <a href="#contact" className="service-cta">Get Started →</a>
+              <a href="https://topmate.io/knowmore_irl" target="_blank" rel="noopener noreferrer" className="service-cta">Get Started →</a>
             </div>
 
             <div className="service-card">
               <div className="service-icon">☁️</div>
               <h3 className="service-title">Cloud & DevOps Consulting</h3>
               <p className="service-description">Optimize your infrastructure with Kubernetes, Terraform, CI/CD pipelines, and cloud-native best practices. Make your deployments reliable.</p>
-              <a href="#contact" className="service-cta">Let's Talk →</a>
+              <a href="https://topmate.io/knowmore_irl" target="_blank" rel="noopener noreferrer" className="service-cta">Let's Talk →</a>
             </div>
 
             <div className="service-card">
               <div className="service-icon">🎯</div>
               <h3 className="service-title">1:1 Career Guidance</h3>
               <p className="service-description">Navigate your engineering career with confidence. Resume reviews, interview prep, and personalized roadmaps to reach your goals.</p>
-              <a href="#contact" className="service-cta">Book a Call →</a>
+              <a href="https://topmate.io/knowmore_irl" target="_blank" rel="noopener noreferrer" className="service-cta">Book a Call →</a>
             </div>
 
             <div className="service-card">
               <div className="service-icon">📚</div>
               <h3 className="service-title">Mentorship & Learning Support</h3>
               <p className="service-description">Structured mentorship to help you master new technologies. Regular check-ins, project guidance, and accountability to keep you on track.</p>
-              <a href="#contact" className="service-cta">Find a Mentor →</a>
+              <a href="https://topmate.io/knowmore_irl" target="_blank" rel="noopener noreferrer" className="service-cta">Find a Mentor →</a>
             </div>
           </div>
         </div>
